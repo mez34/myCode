@@ -50,6 +50,14 @@
    TH1D* h_eta;
    TH1D* h_sumpt;
    TH1D* histo;
+
+   TH1D* h_et_jet1;
+   TH1D* h_et_jet2;
+   TH1D* h_et_jet3;
+   TH1D* h_et_jet4;
+   TH1D* h_et_jet5;
+   TH1D* h_et_jet6;
+
    TH1D* h_et_leading;
    TH1D* h_njets;
    TH2D* h_et_njets;
@@ -70,12 +78,18 @@ edm::Service<TFileService> fs;
       h_ht.push_back(histo);
   }
 
-  h_pt = fs->make<TH1D>("h_pt","", 200, 0, 1000);
+  h_pt = fs->make<TH1D>("h_pt","", 20, 0, 1000);
   h_eta = fs->make<TH1D>("h_eta","", 100,-3.5,3.5);
-  h_sumpt = fs->make<TH1D>("h_spt","", 200, 0, 1000);
+  h_sumpt = fs->make<TH1D>("h_spt","", 20, 0, 1000);
   h_njets = fs->make<TH1D>("h_njets","",30,0,30);
-  h_et_leading = fs->make<TH1D>("h_et_lead","",400,0,2000);
-  h_et_njets = fs->make<TH2D>("h_et_njets","",400,0,2000,30,0,30);
+  h_et_jet1 = fs->make<TH1D>("h_et_jet1","",20,0,1000);
+  h_et_jet2 = fs->make<TH1D>("h_et_jet2","",20,0,1000);
+  h_et_jet3 = fs->make<TH1D>("h_et_jet3","",20,0,1000);
+  h_et_jet4 = fs->make<TH1D>("h_et_jet4","",20,0,1000);
+  h_et_jet5 = fs->make<TH1D>("h_et_jet5","",20,0,1000);
+  h_et_jet6 = fs->make<TH1D>("h_et_jet6","",20,0,1000);
+  h_et_leading = fs->make<TH1D>("h_et_lead","",20,0,1000);
+  h_et_njets = fs->make<TH2D>("h_et_njets","",40,0,2000,30,0,30);
 }
 
 
@@ -105,9 +119,18 @@ void HtAnalyzer::analyze(const edm::Event& event, const edm::EventSetup& setup) 
         double px = et*cos(phi);
         double py = et*sin(phi);
 
+        if ( fabs(eta) <= 3 ){
+          if ( n == 0 ) h_et_jet1->Fill(et);
+          if ( n == 1 ) h_et_jet2->Fill(et);
+          if ( n == 2 ) h_et_jet3->Fill(et);
+          if ( n == 3 ) h_et_jet4->Fill(et);
+          if ( n == 4 ) h_et_jet5->Fill(et);
+          if ( n == 5 ) h_et_jet6->Fill(et);
+        }
         if ( et >= 40 && fabs(eta) <= 3 ){
           njets += 1;
           spt += et;
+
           h_et_leading->Fill(et);
           std::cout<< "n="<<n<<" pt="<<pt<< "et="<<px<<" "<<py<<" eta="<<eta<<" Ht* ="<<spt<<" Et ="<<setx<<" "<<sety<<std::endl;
         }
