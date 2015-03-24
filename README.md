@@ -1,6 +1,7 @@
 # myCode
 
 ~ WorkFlow ~
+
 SimStep1,SimStep2,SimStep3,SimStep4 made by $ runTheMatrix.py -l 1306
 
 MC Samples generated with SimStep1 and minSLHA.spc file that SPECIFIES NEUTRALINO WIDTH (needed for displaced vertices)
@@ -27,7 +28,7 @@ SimStep2_731.py   does DIGI, RAW, HLTDEBUG
   - hlt.py : the HLT menu MY VERSION is /dev/CMSSW_7_3_0/GRun/V47 (CMSSW_7_3_1_patch2_HLT3)
              with new paths for low HT, 6jet triggers
              called by:
-             hltGetConfiguration /dev/CMSSW_7_3_0/GRun —-cff --offline --mc --unprescale --process TEST --globaltag auto:run2_mc_Grun > hlt.py
+             hltGetConfiguration /dev/CMSSW_7_3_0/GRun --cff --offline --mc --unprescale --process TEST --globaltag auto:run2_mc_Grun > hlt.py
 
   CAN DO: simple_trigger_efficiency.py at this point on the SimStep2 output files to see efficiency of HLT alone. 
           GetCorrTable.C  makes a text file with the full correlation table from results of simple_trigger_efficiency.
