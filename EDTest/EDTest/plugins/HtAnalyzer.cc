@@ -120,12 +120,12 @@ void HtAnalyzer::analyze(const edm::Event& event, const edm::EventSetup& setup) 
         double py = et*sin(phi);
 
         if ( fabs(eta) <= 3 ){
-          if ( n == 0 ) h_et_jet1->Fill(et);
-          if ( n == 1 ) h_et_jet2->Fill(et);
-          if ( n == 2 ) h_et_jet3->Fill(et);
-          if ( n == 3 ) h_et_jet4->Fill(et);
-          if ( n == 4 ) h_et_jet5->Fill(et);
-          if ( n == 5 ) h_et_jet6->Fill(et);
+          if ( n == 1 ) h_et_jet1->Fill(et);
+          if ( n == 2 ) h_et_jet2->Fill(et);
+          if ( n == 3 ) h_et_jet3->Fill(et);
+          if ( n == 4 ) h_et_jet4->Fill(et);
+          if ( n == 5 ) h_et_jet5->Fill(et);
+          if ( n == 6 ) h_et_jet6->Fill(et);
         }
         if ( et >= 40 && fabs(eta) <= 3 ){
           njets += 1;
