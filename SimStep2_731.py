@@ -59,7 +59,7 @@ process.FEVTDEBUGHLToutput = cms.OutputModule("PoolOutputModule",
     splitLevel = cms.untracked.int32(0),
     eventAutoFlushCompressedSize = cms.untracked.int32(1048576),
     outputCommands = process.FEVTDEBUGHLTEventContent.outputCommands,
-    fileName = cms.untracked.string('file:step2_731_m900_ht6jet.root'),
+    fileName = cms.untracked.string('file:step2_731_ht6jet.root'),
     dataset = cms.untracked.PSet(
         filterName = cms.untracked.string(''),
         dataTier = cms.untracked.string('GEN-SIM-DIGI-RAW-HLTDEBUG')
@@ -105,7 +105,7 @@ process.endjob_step = cms.EndPath(process.endOfProcess)
 process.FEVTDEBUGHLToutput_step = cms.EndPath(process.FEVTDEBUGHLToutput)
 
 process.TFileService = cms.Service("TFileService",
-    fileName = cms.string("results_m900.root"),
+    fileName = cms.string("results.root"),
     closeFileFast = cms.untracked.bool(True)
 )
 
